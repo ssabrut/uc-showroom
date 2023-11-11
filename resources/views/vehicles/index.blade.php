@@ -43,7 +43,7 @@
                   <form action="{{ route('vehicles.destroy', $vehicle->id) }}" method="POST">
                     @method('DELETE')
                     @csrf
-                    <button class="no-underline text-red-600 font-semibold">Delete</button>
+                    <button class="no-underline text-red-600 font-semibold" type="submit">Delete</button>
                   </form>
                 </div>
               </td>

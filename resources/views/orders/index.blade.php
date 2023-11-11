@@ -32,8 +32,10 @@
                 <div class="flex items-center gap-4">
                   <a class="no-underline text-blue-600 font-semibold"
                     href="{{ route('orders.edit', $order->id) }}">Edit</a>
-                  <form action="">
-                    <button>Delete</button>
+                  <form action="{{ route('orders.destroy', $order->id) }}" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <button class="no-underline text-red-600 font-semibold" type="submit">Delete</button>
                   </form>
                 </div>
               </td>
