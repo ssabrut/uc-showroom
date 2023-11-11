@@ -28,6 +28,14 @@ class VehicleController extends Controller {
     public function store(Request $request) {
         $type = $request->input('type');
 
+        $request->validate([
+            'model' => ['required', 'max:255'],
+            'year' => ['required', 'max:4', 'min:4', 'integer'],
+            'capacity' => ['required', 'max:2', 'integer'],
+            'manufacture' => ['required', 'max:255'],
+            'price' => ['required', 'integer'],
+        ]);
+
         $vehicle = Vehicle::create([
             'model' => $request->input('model'),
             'year' => $request->input('year'),
@@ -80,6 +88,14 @@ class VehicleController extends Controller {
      */
     public function update(Request $request, $id) {
         $vehicle = Vehicle::find($id);
+
+        $request->validate([
+            'model' => ['required', 'max:255'],
+            'year' => ['required', 'max:4', 'min:4', 'integer'],
+            'capacity' => ['required', 'max:2', 'integer'],
+            'manufacture' => ['required', 'max:255'],
+            'price' => ['required', 'integer'],
+        ]);
 
         $vehicle->update([
             'model' => $request->input('model'),
