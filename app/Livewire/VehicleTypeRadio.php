@@ -20,8 +20,10 @@ class VehicleTypeRadio extends Component {
     public $fuelType = '';
 
     public function mount($vehicle) {
-        $this->vehicle = $vehicle;
-        $this->vehicleType = $vehicle->type;
+        if ($vehicle != null) {
+            $this->vehicle = $vehicle;
+            $this->vehicleType = $vehicle->type;
+        }
     }
 
     public function setVehicleType($vehicleType) {
