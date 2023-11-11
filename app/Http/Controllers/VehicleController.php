@@ -10,7 +10,9 @@ class VehicleController extends Controller {
      * Display a listing of the resource.
      */
     public function index() {
-        return view('vehicles.index');
+        return view('vehicles.index', [
+            'vehicles' => Vehicle::with('type')->get(),
+        ]);
     }
 
     /**

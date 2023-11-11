@@ -53,8 +53,8 @@
       <div class="mb-6">
         <label for="fuel_type" class="block text-sm font-medium leading-6 text-gray-900 required">Fuel Type</label>
         <div class="mt-2">
-          <input class="border w-full py-1.5 px-3 rounded-md" type="number" name="fuel_type" id="fuel_type"
-            autocomplete="off" placeholder="e.g. 8" required />
+          <input class="border w-full py-1.5 px-3 rounded-md" type="text" name="fuel_type" id="fuel_type"
+            autocomplete="off" placeholder="e.g. Gas" required />
         </div>
       </div>
       <div class="mb-6">
