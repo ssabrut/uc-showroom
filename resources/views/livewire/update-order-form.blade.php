@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="flex items-center justify-end mt-8 gap-8">
-      <button wire:click="clear">Back</button>
+      <a href="{{ route('orders.index') }}">Back</a>
       <button class="bg-blue-600 font-semibold text-white py-2 px-3 rounded-md border-0" wire:click="updateOrder">Update
         Order</button>
     </div>

@@ -4,6 +4,7 @@
   <div>
     <div class="mb-14">
       @include('components.content-page-title', ['title' => 'Update Vehicle Data'])
+      <p class="font-medium">Current Type : {{ $vehicle->type }}</p>
     </div>
     <div>
       <form class="w-1/3" action="{{ route('vehicles.update', $vehicle->id) }}" method="POST">
@@ -19,16 +20,20 @@
         <div class="mb-6">
           <label for="year" class="block text-sm font-medium leading-6 text-gray-900 required">Year</label>
           <div class="mt-2">
-            <input class="border w-full py-1.5 px-3 rounded-md" type="number" name="year" id="year"
-              autocomplete="off" placeholder="e.g. 1997" value="{{ old('year', $vehicle->year) }}" required />
+            <input class="border w-full py-1.5 px-3 rounded-md" type="text" pattern="\d*" name="year" minlength="4"
+              id="year" maxlength="4" autocomplete="off" placeholder="e.g. 1997"
+              value="{{ old('year', $vehicle->year) }}" required />
+            <p class="text-sm text-gray-400 mt-2">Input only 4 digit number</p>
           </div>
         </div>
         <div class="mb-6">
           <label for="capacity" class="block text-sm font-medium leading-6 text-gray-900 required">Passenger
             Capacity</label>
           <div class="mt-2">
-            <input class="border w-full py-1.5 px-3 rounded-md" type="number" name="capacity" id="capacity"
-              autocomplete="off" placeholder="e.g. 4" value="{{ old('capacity', $vehicle->capacity) }}" required />
+            <input class="border w-full py-1.5 px-3 rounded-md" type="number" pattern="\d*" maxlength="2"
+              name="capacity" id="capacity" autocomplete="off" placeholder="e.g. 4"
+              value="{{ old('capacity', $vehicle->capacity) }}" required />
+            <p class="text-sm text-gray-400 mt-2">Input only number within 2 digit</p>
           </div>
         </div>
         <div class="mb-6">
@@ -42,8 +47,9 @@
         <div class="mb-6">
           <label for="price" class="block text-sm font-medium leading-6 text-gray-900 required">Price</label>
           <div class="mt-2">
-            <input class="border w-full py-1.5 px-3 rounded-md" type="number" name="price" id="price"
-              autocomplete="off" placeholder="e.g. 100000000" value="{{ old('price', $vehicle->price) }}" required />
+            <input class="border w-full py-1.5 px-3 rounded-md" type="text" name="price" id="price"
+              pattern="\d*" maxlength="12" autocomplete="off" placeholder="e.g. 100000000"
+              value="{{ old('price', $vehicle->price) }}" required />
           </div>
         </div>
         <livewire:vehicle-type-radio :vehicle="$vehicle" />

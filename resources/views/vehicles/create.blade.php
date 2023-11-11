@@ -18,16 +18,18 @@
         <div class="mb-6">
           <label for="year" class="block text-sm font-medium leading-6 text-gray-900 required">Year</label>
           <div class="mt-2">
-            <input class="border w-full py-1.5 px-3 rounded-md" type="number" name="year" id="year"
-              autocomplete="off" placeholder="e.g. 1997" required />
+            <input class="border w-full py-1.5 px-3 rounded-md" type="text" pattern="\d*" name="year"
+              id="year" minlength="4" maxlength="4" autocomplete="off" placeholder="e.g. 1997" required />
+            <p class="text-sm text-gray-400 mt-2">Input only 4 digit number</p>
           </div>
         </div>
         <div class="mb-6">
           <label for="capacity" class="block text-sm font-medium leading-6 text-gray-900 required">Passenger
             Capacity</label>
           <div class="mt-2">
-            <input class="border w-full py-1.5 px-3 rounded-md" type="number" name="capacity" id="capacity"
+            <input class="border w-full py-1.5 px-3 rounded-md" type="text" pattern="\d*" name="capacity" id="capacity" maxlength="2"
               autocomplete="off" placeholder="e.g. 4" required />
+            <p class="text-sm text-gray-400 mt-2">Input only number within 2 digit number</p>
           </div>
         </div>
         <div class="mb-6">
@@ -40,7 +42,7 @@
         <div class="mb-6">
           <label for="price" class="block text-sm font-medium leading-6 text-gray-900 required">Price</label>
           <div class="mt-2">
-            <input class="border w-full py-1.5 px-3 rounded-md" type="number" name="price" id="price"
+            <input class="border w-full py-1.5 px-3 rounded-md" type="number" name="price" id="price" maxlength="12"
               autocomplete="off" placeholder="e.g. 100000000" required />
           </div>
         </div>

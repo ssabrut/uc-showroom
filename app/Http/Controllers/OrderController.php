@@ -49,7 +49,7 @@ class OrderController extends Controller {
      */
     public function edit($id) {
         return view('orders.update', [
-            'order' => Order::find($id)->with('user')->first(),
+            'order' => Order::find($id),
             'vehicles' => Vehicle::with('type')->get()
         ]);
     }

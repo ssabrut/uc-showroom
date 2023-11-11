@@ -27,7 +27,8 @@
                 <td class="py-4">{{ $customer->id }}</td>
                 <td class="py-4">{{ $customer->name }}</td>
                 <td class="py-4">{{ $customer->address }}</td>
-                <td class="py-4">{{ $customer->phone }}</td>
+                <td class="py-4">{{ substr($customer->phone, 0, 4) }} -
+                  {{ substr($customer->phone, 4, 4) }} - {{ substr($customer->phone, 8, 4) }}</td>
               </tr>
             @endforeach
           </tbody>
@@ -64,7 +65,7 @@
                     <td class="py-4">{{ $vehicle->capacity }}</td>
                     <td class="py-4">{{ $vehicle->manufacture }}</td>
                     <td class="py-4">{{ $vehicle->type }}</td>
-                    <td class="py-4">{{ $vehicle->price }}</td>
+                    <td class="py-4">Rp. {{ number_format($vehicle->price, 0, '.', ',') }}</td>
                   </tr>
                 @endforeach
               </tbody>

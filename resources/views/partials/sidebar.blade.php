@@ -5,21 +5,22 @@
     </div>
     <div>
       <div class="flex flex-col gap-4">
-        <div class="flex gap-3 items-center bg-gray-100 py-2.5 px-3.5 rounded-lg text-blue-600">
+        <div class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg {{ request()->route('/') ? 'bg-gray-100 text-blue-600' : '' }}">
           <i data-feather="home"></i>
-          <p class="text-xl font-medium">Dashboard</p>
+          <a class="text-xl font-medium no-underline" href="/">Dashboard</a>
         </div>
-        <div class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg">
+        <div
+          class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg {{ request()->routeIs('orders.*') ? 'bg-gray-100 text-blue-600' : '' }}">
           <i data-feather="shopping-cart"></i>
-          <a class="text-xl font-medium" href="{{ route('orders.index') }}">Order</a>
+          <a class="text-xl font-medium no-underline" href="{{ route('orders.index') }}">Order</a>
         </div>
-        <div class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg">
+        <div class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg {{ request()->routeIs('customers.*') ? 'bg-gray-100 text-blue-600' : '' }}">
           <i data-feather="user"></i>
-          <a class="text-xl font-medium" href="{{ route('customers.index') }}">Customer</a>
+          <a class="text-xl font-medium no-underline" href="{{ route('customers.index') }}">Customer</a>
         </div>
-        <div class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg">
-          <img class="w-6 h-6 object-cover" src="{{ URL::to('/') }}/icons/car.png" />
-          <a class="text-xl font-medium" href="{{ route('vehicles.index') }}">Vehicle</a>
+        <div class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg {{ request()->routeIs('vehicles.*') ? 'bg-gray-100 text-blue-600' : '' }}">
+          <i data-feather="box"></i>
+          <a class="text-xl font-medium no-underline" href="{{ route('vehicles.index') }}">Vehicle</a>
         </div>
       </div>
     </div>

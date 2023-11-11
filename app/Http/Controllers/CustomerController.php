@@ -26,12 +26,12 @@ class CustomerController extends Controller {
      * Store a newly created resource in storage.
      */
     public function store(Request $request) {
-        // $request->validate([
-        //     'id' => ['required', 'unique:customers', 'max:16', 'min:16', 'integer'],
-        //     'name' => ['required', 'max:255'],
-        //     'address' => ['required', 'max:255'],
-        //     'phone' => ['required', 'max:15', 'min:10', 'integer'],
-        // ]);
+        $request->validate([
+            'id' => ['required', 'unique:customers', 'max:16', 'min:16'],
+            'name' => ['required', 'max:255'],
+            'address' => ['required', 'max:255'],
+            'phone' => ['required', 'max:15', 'min:9'],
+        ]);
 
         User::create([
             'id' => $request->id,
@@ -68,6 +68,13 @@ class CustomerController extends Controller {
      */
     public function update(Request $request, $id) {
         $customer = User::find($id);
+
+        $request->validate([
+            'id' => ['required', 'unique:customers', 'max:16', 'min:16'],
+            'name' => ['required', 'max:255'],
+            'address' => ['required', 'max:255'],
+            'phone' => ['required', 'max:15', 'min:9'],
+        ]);
 
         $customer->update([
             'id' => $request->id,

@@ -12,8 +12,10 @@
         <div class="mb-6">
           <label for="id" class="block text-sm font-medium leading-6 text-gray-900 required">ID Card</label>
           <div class="mt-2">
-            <input class="border w-full py-1.5 px-3 rounded-md" type="number" name="id" id="id"
-              autocomplete="off" placeholder="16 digit number" value="{{ old('id', $customer->id) }}" required />
+            <input class="border w-full py-1.5 px-3 rounded-md" type="text" name="id" id="id" pattern="\d*"
+              minlength="16" maxlength="16" autocomplete="off" placeholder="16 digit number"
+              value="{{ old('id', $customer->id) }}" required />
+            <p class="text-sm text-gray-400 mt-2">Input only 16 digit number</p>
           </div>
         </div>
         <div class="mb-6">
@@ -34,8 +36,10 @@
         <div class="mb-10">
           <label for="phone" class="block text-sm font-medium leading-6 text-gray-900 required">Phone Number</label>
           <div class="mt-2">
-            <input class="border w-full py-1.5 px-3 rounded-md" type="number" name="phone" id="phone"
-              autocomplete="off" placeholder="e.g. 081234567890" value="{{ old('phone', $customer->phone) }}" required />
+            <input class="border w-full py-1.5 px-3 rounded-md" type="text" name="phone" id="phone"
+              minlength="9" maxlength="12" pattern="\d*" autocomplete="off" placeholder="e.g. 081234567890"
+              value="{{ old('phone', $customer->phone) }}" required />
+            <p class="text-sm text-gray-400 mt-2">Input only number between 9 to 12 digit</p>
           </div>
         </div>
         <hr class="mb-10" />

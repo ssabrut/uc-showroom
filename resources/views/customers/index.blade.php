@@ -29,7 +29,8 @@
               <td class="py-4">{{ $customer->id }}</td>
               <td class="py-4">{{ $customer->name }}</td>
               <td class="py-4">{{ $customer->address }}</td>
-              <td class="py-4">{{ $customer->phone }}</td>
+              <td class="py-4">{{ substr($customer->phone, 0, 4) }} -
+                {{ substr($customer->phone, 4, 4) }} - {{ substr($customer->phone, 8, 4) }}</td>
               <td class="py-4">
                 <div class="flex items-center gap-4">
                   <a class="no-underline text-blue-600 font-semibold"

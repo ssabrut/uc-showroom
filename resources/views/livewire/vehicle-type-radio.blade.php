@@ -24,39 +24,44 @@
       <div class="mb-6">
         <label for="trunk_area" class="block text-sm font-medium leading-6 text-gray-900 required">Trunk Area</label>
         <div class="mt-2">
-          <input class="border w-full py-1.5 px-3 rounded-md" type="number" name="trunk_area" id="trunk_area"
-            autocomplete="off" placeholder="e.g. 2" wire:model="trunkArea"
+          <input class="border w-full py-1.5 px-3 rounded-md" type="text" pattern="\d*" name="trunk_area"
+            id="trunk_area" maxlength="2" autocomplete="off" placeholder="e.g. 2" wire:model="trunkArea"
             @if ($vehicle != null) value="{{ old('trunk_area', $vehicle->motobike->trunk_area) }}" @endif
             required />
+          <p class="text-sm text-gray-400 mt-2">Input only number within 2 digit number</p>
         </div>
       </div>
       <div class="mb-6">
         <label for="engine_capacity" class="block text-sm font-medium leading-6 text-gray-900 required">Engine
           Capacity</label>
         <div class="mt-2">
-          <input class="border w-full py-1.5 px-3 rounded-md" type="number" name="engine_capacity" id="engine_capacity"
-            autocomplete="off" placeholder="e.g. 15" wire:model="engineCapacity"
+          <input class="border w-full py-1.5 px-3 rounded-md" type="text" pattern="\d*" maxlength="4"
+            name="engine_capacity" id="engine_capacity" autocomplete="off" placeholder="e.g. 15"
+            wire:model="engineCapacity"
             @if ($vehicle != null) value="{{ old('engine_capacity', $vehicle->motobike->engine_capacity) }}" @endif
             required />
+          <p class="text-sm text-gray-400 mt-2">Input only number within 4 digit number</p>
         </div>
       </div>
     @elseif ($vehicleType == 'Truck')
       <div class="mb-6">
         <label for="total_wheel" class="block text-sm font-medium leading-6 text-gray-900 required">Total Wheel</label>
         <div class="mt-2">
-          <input class="border w-full py-1.5 px-3 rounded-md" type="number" name="total_wheel" id="total_wheel"
-            autocomplete="off" placeholder="e.g. 8"
+          <input class="border w-full py-1.5 px-3 rounded-md" type="text" pattern="\d*" name="total_wheel"
+            id="total_wheel" maxlength="2" autocomplete="off" placeholder="e.g. 8"
             @if ($vehicle != null) value="{{ old('total_wheel', $vehicle->truck->total_wheel) }}" @endif
             required />
+          <p class="text-sm text-gray-400 mt-2">Input only number within 2 digit number</p>
         </div>
       </div>
       <div class="mb-6">
         <label for="cargo_area" class="block text-sm font-medium leading-6 text-gray-900 required">Cargo Area</label>
         <div class="mt-2">
           <input class="border w-full py-1.5 px-3 rounded-md" type="number" name="cargo_area" id="cargo_area"
-            autocomplete="off" placeholder="e.g. 15"
+            maxlength="3" autocomplete="off" placeholder="e.g. 15"
             @if ($vehicle != null) value="{{ old('cargo_area', $vehicle->truck->cargo_area) }}" @endif
             required />
+          <p class="text-sm text-gray-400 mt-2">Input only number within 3 digit number</p>
         </div>
       </div>
     @elseif ($vehicleType == 'Car')
@@ -72,10 +77,11 @@
       <div class="mb-6">
         <label for="trunk_area" class="block text-sm font-medium leading-6 text-gray-900 required">Trunk Area</label>
         <div class="mt-2">
-          <input class="border w-full py-1.5 px-3 rounded-md" type="number" name="trunk_area" id="trunk_area"
-            autocomplete="off" placeholder="e.g. 15"
+          <input class="border w-full py-1.5 px-3 rounded-md" type="text" pattern="\d*" name="trunk_area"
+            id="trunk_area" maxlength="2" autocomplete="off" placeholder="e.g. 15"
             @if ($vehicle != null) value="{{ old('trunk_area', $vehicle->car->trunk_area) }}" @endif
             required />
+          <p class="text-sm text-gray-400 mt-2">Input only number within 2 digit</p>
         </div>
       </div>
     @endif
