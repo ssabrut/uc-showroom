@@ -14,15 +14,19 @@ class Vehicle extends Model {
         return $this->belongsToMany(Order::class, 'order_vechicles');
     }
 
-    public function trucks() {
-        return $this->hasMany(Truck::class);
+    public function type() {
+        return $this->morphTo();
     }
 
-    public function cars() {
-        return $this->hasMany(Car::class);
+    public function motobike() {
+        return $this->hasOne(Motobike::class);
     }
 
-    public function motobikes() {
-        return $this->hasMany(Motobike::class);
+    public function truck() {
+        return $this->hasOne(Truck::class);
+    }
+
+    public function car() {
+        return $this->hasOne(Car::class);
     }
 }

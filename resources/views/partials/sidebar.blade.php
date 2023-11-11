@@ -11,7 +11,7 @@
         </div>
         <div class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg">
           <i data-feather="shopping-cart"></i>
-          <p class="text-xl font-medium">Orderan</p>
+          <p class="text-xl font-medium">Order</p>
         </div>
         <div class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg">
           <i data-feather="user"></i>
@@ -19,7 +19,7 @@
         </div>
         <div class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg">
           <img class="w-6 h-6 object-cover" src="{{ URL::to('/') }}/icons/car.png" />
-          <p class="text-xl font-medium">Kendaraan</p>
+          <a class="text-xl font-medium" href="{{ route('vehicles.index') }}">Vehicle</a>
         </div>
       </div>
     </div>

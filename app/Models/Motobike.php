@@ -11,6 +11,6 @@ class Motobike extends Model {
     protected $guarded = ['id'];
 
     public function vehicle() {
-        return $this->belongsTo(Vehicle::class);
+        return $this->morphOne(Vehicle::class, 'type');
     }
 }
