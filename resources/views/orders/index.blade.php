@@ -23,7 +23,14 @@
           </tr>
         </thead>
         <tbody>
-
+          @foreach ($orders as $order)
+            <tr>
+              <td class="py-4">{{ $order->id }}</td>
+              <td class="py-4">{{ $order->user->name }}</td>
+              <td class="py-4">Rp. {{ number_format($price[$loop->index], 0, '.', ',') }}</td>
+              <td class="py-4">Edit</td>
+            </tr>
+          @endforeach
         </tbody>
       </table>
     </div>

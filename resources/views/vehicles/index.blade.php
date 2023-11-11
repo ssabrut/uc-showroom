@@ -34,7 +34,7 @@
                 <td class="py-4">{{ $vehicle->year }}</td>
                 <td class="py-4">{{ $vehicle->capacity }}</td>
                 <td class="py-4">{{ $vehicle->manufacture }}</td>
-                <td class="py-4">{{ $vehicle->price }}</td>
+                <td class="py-4">Rp. {{ number_format($vehicle->price, 0, '.', ',') }}</td>
                 <td class="py-4">{{ $vehicle->type }}</td>
                 <td class="py-4">Edit</td>
               </tr>

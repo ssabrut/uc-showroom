@@ -12,7 +12,12 @@ class OrderController extends Controller {
      * Display a listing of the resource.
      */
     public function index() {
-        return view('orders.index');
+        return view('orders.index', [
+            'orders' => Order::with('user', 'vehicles')->get(),
+            'price' => Order::with('vehicles')->get()->map(function ($order) {
+                return $order->vehicles->sum('price');
+            })
+        ]);
     }
 
     /**

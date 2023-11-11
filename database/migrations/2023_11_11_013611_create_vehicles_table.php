@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->char('year', 4);
             $table->char('capacity', 2);
             $table->string('manufacture');
-            $table->integer('price');
+            $table->bigInteger('price');
             $table->string('type');
             $table->timestamps();
         });
