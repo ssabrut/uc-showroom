@@ -47,8 +47,11 @@ class OrderController extends Controller {
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Order $order) {
-        //
+    public function edit($id) {
+        return view('orders.update', [
+            'order' => Order::find($id)->with('user')->first(),
+            'vehicles' => Vehicle::with('type')->get()
+        ]);
     }
 
     /**

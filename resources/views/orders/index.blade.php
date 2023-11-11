@@ -30,7 +30,8 @@
               <td class="py-4">Rp. {{ number_format($price[$loop->index], 0, '.', ',') }}</td>
               <td class="py-4">
                 <div class="flex items-center gap-4">
-                  <a href="">Edit</a>
+                  <a class="no-underline text-blue-600 font-semibold"
+                    href="{{ route('orders.edit', $order->id) }}">Edit</a>
                   <form action="">
                     <button>Delete</button>
                   </form>
