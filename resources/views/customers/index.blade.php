@@ -31,8 +31,15 @@
               <td class="py-4">{{ $customer->address }}</td>
               <td class="py-4">{{ $customer->phone }}</td>
               <td class="py-4">
-                <a class="no-underline text-blue-600 font-semibold"
-                  href="{{ route('customers.edit', $customer->id) }}">Edit</a>
+                <div class="flex items-center gap-4">
+                  <a class="no-underline text-blue-600 font-semibold"
+                    href="{{ route('customers.edit', $customer->id) }}">Edit</a>
+                  <form action="{{ route('customers.destroy', $customer->id) }}" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <button class="no-underline text-red-600 font-semibold" type="submit">Delete</button>
+                  </form>
+                </div>
               </td>
             </tr>
           @endforeach

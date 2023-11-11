@@ -84,7 +84,13 @@ class CustomerController extends Controller {
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user) {
-        //
+    public function destroy($id) {
+        $customer = User::find($id);
+
+        $customer->delete();
+
+        return redirect()
+            ->route('customers.index')
+            ->with('success', 'Customer deleted successfully.');
     }
 }
