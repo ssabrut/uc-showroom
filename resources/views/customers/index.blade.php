@@ -16,7 +16,7 @@
       <table class="w-full">
         <thead class="border-b-2">
           <tr>
-            <th class="w-1/6 text-left font-medium pb-4">ID</th>
+            <th class="w-1/6 text-left font-medium pb-4">ID Card</th>
             <th class="w-1/4 text-left font-medium pb-4">Name</th>
             <th class="w-1/3 text-left font-medium pb-4">Address</th>
             <th class="w-1/6 text-left font-medium pb-4">Phone</th>

@@ -11,7 +11,7 @@
         </div>
         <div class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg">
           <i data-feather="shopping-cart"></i>
-          <p class="text-xl font-medium">Order</p>
+          <a class="text-xl font-medium" href="{{ route('orders.index') }}">Order</a>
         </div>
         <div class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg">
           <i data-feather="user"></i>
