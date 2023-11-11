@@ -62,7 +62,7 @@ class VehicleController extends Controller {
             ]);
         }
 
-        return redirect()->route('vehicles.index')->with('success', 'Vehicle created successfully.');
+        return redirect()->route('vehicles.index')->with('success', 'Vehicle created successfully!');
     }
 
     /**
@@ -122,7 +122,7 @@ class VehicleController extends Controller {
             ]);
         }
 
-        return redirect()->route('vehicles.index')->with('success', 'Vehicle updated successfully.');
+        return redirect()->route('vehicles.index')->with('success', 'Vehicle updated successfully!');
     }
 
     /**
@@ -135,6 +135,6 @@ class VehicleController extends Controller {
 
         return redirect()
             ->route('vehicles.index')
-            ->with('success', 'Vehicle deleted successfully.');
+            ->with('success', 'Vehicle deleted successfully!');
     }
 }

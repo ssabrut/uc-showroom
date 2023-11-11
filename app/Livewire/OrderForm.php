@@ -46,7 +46,7 @@ class OrderForm extends Component {
         }
 
         $this->clear();
-        return redirect()->route('orders.index');
+        return redirect()->route('orders.index')->with('success', 'Order created successfully!');
     }
 
     public function render() {

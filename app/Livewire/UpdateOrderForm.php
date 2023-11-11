@@ -31,7 +31,7 @@ class UpdateOrderForm extends Component {
         foreach ($this->selectedVehicle as $vehicleId) {
             $this->order->vehicles()->attach($vehicleId);
         }
-        return redirect()->route('orders.index');
+        return redirect()->route('orders.index')->with('success', 'Order updated successfully!');
     }
 
     public function render() {

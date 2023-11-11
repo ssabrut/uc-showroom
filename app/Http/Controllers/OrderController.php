@@ -71,7 +71,7 @@ class OrderController extends Controller {
 
         return redirect()
             ->route('orders.index')
-            ->with('success', 'Order deleted successfully.');
+            ->with('success', 'Order deleted successfully!');
     }
 
     /** 
@@ -92,6 +92,6 @@ class OrderController extends Controller {
 
         return redirect()
             ->route('orders.index')
-            ->with('success', 'File uploaded successfully.');
+            ->with('success', 'File uploaded successfully!');
     }
 }

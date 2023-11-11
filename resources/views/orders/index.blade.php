@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+  @if (session()->has('success'))
+    @include('components.notification', ['message' => session()->get('success')])
+  @endif
   <div>
     <div class="flex justify-between items-center mb-14">
       <div>
