@@ -23,6 +23,8 @@ class User extends Authenticatable {
         'phone',
     ];
 
+    protected $table = 'customers';
+
     public function orders() {
         return $this->hasMany(Order::class);
     }
