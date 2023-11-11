@@ -39,7 +39,7 @@
         <hr class="mb-10" />
         <div class="flex items-center justify-end gap-2">
           <a class="font-semibold py-2 px-3 rounded-md" href="{{ route('customers.index') }}">Cancel</a>
-          <button class="bg-green-600 font-semibold text-white py-2 px-3 rounded-md border-0"
+          <button class="bg-blue-600 font-semibold text-white py-2 px-3 rounded-md border-0"
             type="submit">Submit</button>
         </div>
       </form>
