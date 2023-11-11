@@ -15,7 +15,7 @@
         </div>
         <div class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg">
           <i data-feather="user"></i>
-          <p class="text-xl font-medium">Customer</p>
+          <a class="text-xl font-medium" href="{{ route('customers.index') }}">Customer</a>
         </div>
         <div class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg">
           <img class="w-6 h-6 object-cover" src="{{ URL::to('/') }}/icons/car.png" />
