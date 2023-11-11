@@ -1,4 +1,4 @@
-<div class="w-96 border-r-2 h-screen bg-white">
+<div class="w-96 border-r-2 h-screen bg-white fixed left-0 top-0 z-50">
   <div class="mx-6 mb-4">
     <div class="py-8 mb-6">
       <h1 class="font-bold text-3xl">UC-Showroom</h1>
