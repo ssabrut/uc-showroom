@@ -6,7 +6,8 @@
       @include('components.content-page-title', ['title' => 'Add New Customer'])
     </div>
     <div>
-      <form class="w-1/3" action="">
+      <form class="w-1/3" action="{{ route('customers.store') }}" method="POST">
+        @csrf
         <div class="mb-6">
           <label for="id" class="block text-sm font-medium leading-6 text-gray-900 required">ID Card</label>
           <div class="mt-2">
@@ -32,13 +33,13 @@
           <label for="phone" class="block text-sm font-medium leading-6 text-gray-900 required">Phone Number</label>
           <div class="mt-2">
             <input class="border w-full py-1.5 px-3 rounded-md" type="number" name="phone" id="phone" autocomplete="off"
-              placeholder="e.g. 0812-3456-7890" required />
+              placeholder="e.g. 081234567890" required />
           </div>
         </div>
         <hr class="mb-10"/>
         <div class="flex items-center justify-end gap-2">
           <a class="font-semibold py-2 px-3 rounded-md" href="{{ route('customers.index') }}">Cancel</a>
-          <button class="bg-green-600 font-semibold text-white py-2 px-3 rounded-md border-0">Submit</button>
+          <button class="bg-green-600 font-semibold text-white py-2 px-3 rounded-md border-0" type="submit">Submit</button>
         </div>
       </form>
     </div>
