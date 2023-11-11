@@ -23,3 +23,4 @@ Route::get('/', function () {
 Route::resource('customers', CustomerController::class);
 Route::resource('vehicles', VehicleController::class);
 Route::resource('orders', OrderController::class);
+Route::post('/orders/upload', [OrderController::class, 'upload'])->name('orders.upload');

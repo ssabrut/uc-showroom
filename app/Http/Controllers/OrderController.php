@@ -73,4 +73,25 @@ class OrderController extends Controller {
             ->route('orders.index')
             ->with('success', 'Order deleted successfully.');
     }
+
+    /** 
+     * Upload file
+     */
+    public function upload(Request $request) {
+        $request->validate([
+            'file' => ['required', 'mimes:png,jpeg,jpg']
+        ]);
+
+        $file = $request->file('file');
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        $filePath = $file->storeAs('uploads', $fileName, 'public');
+
+        $order = Order::find($request->order_id);
+        $order->transfer = $filePath;
+        $order->save();
+
+        return redirect()
+            ->route('orders.index')
+            ->with('success', 'File uploaded successfully.');
+    }
 }

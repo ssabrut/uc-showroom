@@ -14,23 +14,23 @@ class DatabaseSeeder extends Seeder {
     public function run(): void {
         User::create([
             'id' => 3578101010100001,
-            'name' => 'Test User',
-            'address' => '123 Test Street',
-            'phone' => '0812-3456-7890',
+            'name' => 'Irawan',
+            'address' => 'Jl. Raya Bogor KM 30',
+            'phone' => '081234567890',
         ]);
 
         User::create([
             'id' => 3578101010100002,
-            'name' => 'Haha User',
-            'address' => '123 Haha Street',
-            'phone' => '0812-3456-7890',
+            'name' => 'Rico Rudikan',
+            'address' => 'Jl. Raya Darmo Permai Selatan',
+            'phone' => '081298765432',
         ]);
 
         User::create([
             'id' => 3578101010100003,
-            'name' => 'Hihi User',
-            'address' => '123 Hihi Street',
-            'phone' => '0812-3456-7890',
+            'name' => 'Anathan Pham',
+            'address' => '123 Fake Street',
+            'phone' => '081298762345',
         ]);
     }
 }

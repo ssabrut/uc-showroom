@@ -30,10 +30,10 @@ class VehicleController extends Controller {
 
         $request->validate([
             'model' => ['required', 'max:255'],
-            'year' => ['required', 'max:4', 'min:4', 'integer'],
-            'capacity' => ['required', 'max:2', 'integer'],
+            'year' => ['required', 'max:4', 'min:4'],
+            'capacity' => ['required', 'max:2'],
             'manufacture' => ['required', 'max:255'],
-            'price' => ['required', 'integer'],
+            'price' => ['required'],
         ]);
 
         $vehicle = Vehicle::create([
@@ -91,10 +91,10 @@ class VehicleController extends Controller {
 
         $request->validate([
             'model' => ['required', 'max:255'],
-            'year' => ['required', 'max:4', 'min:4', 'integer'],
-            'capacity' => ['required', 'max:2', 'integer'],
+            'year' => ['required', 'max:4', 'min:4'],
+            'capacity' => ['required', 'max:2'],
             'manufacture' => ['required', 'max:255'],
-            'price' => ['required', 'integer'],
+            'price' => ['required'],
         ]);
 
         $vehicle->update([
