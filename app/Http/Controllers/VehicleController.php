@@ -112,7 +112,13 @@ class VehicleController extends Controller {
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Vehicle $vehicle) {
-        //
+    public function destroy($id) {
+        $vehicle = Vehicle::find($id);
+
+        $vehicle->delete();
+
+        return redirect()
+            ->route('vehicles.index')
+            ->with('success', 'Vehicle deleted successfully.');
     }
 }
