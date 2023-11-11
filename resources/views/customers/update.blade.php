@@ -3,7 +3,7 @@
 @section('content')
   <div>
     <div class="mb-14">
-      @include('components.content-page-title', ['title' => 'Add New Customer'])
+      @include('components.content-page-title', ['title' => 'Update Customer Data'])
     </div>
     <div>
       <form class="w-1/3" action="{{ route('customers.update', $customer->id) }}" method="POST">

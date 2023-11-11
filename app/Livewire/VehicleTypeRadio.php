@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 
 class VehicleTypeRadio extends Component {
+    public $vehicle = null;
     public $vehicleType = '';
 
     // motobike
@@ -17,6 +18,11 @@ class VehicleTypeRadio extends Component {
 
     // public
     public $fuelType = '';
+
+    public function mount($vehicle) {
+        $this->vehicle = $vehicle;
+        $this->vehicleType = $vehicle->type;
+    }
 
     public function setVehicleType($vehicleType) {
         $this->vehicleType = $vehicleType;

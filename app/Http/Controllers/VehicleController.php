@@ -67,15 +67,46 @@ class VehicleController extends Controller {
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Vehicle $vehicle) {
-        //
+    public function edit($vehicleId) {
+        $vehicle = Vehicle::with('type')->find($vehicleId);
+
+        return view('vehicles.update', [
+            'vehicle' => $vehicle,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Vehicle $vehicle) {
-        //
+    public function update(Request $request, $id) {
+        $vehicle = Vehicle::find($id);
+
+        $vehicle->update([
+            'model' => $request->input('model'),
+            'year' => $request->input('year'),
+            'capacity' => $request->input('capacity'),
+            'manufacture' => $request->input('manufacture'),
+            'price' => $request->input('price'),
+        ]);
+
+        if ($vehicle->type == 'Car') {
+            $vehicle->car()->update([
+                'fuel_type' => $request->input('fuel_type'),
+                'trunk_area' => $request->input('trunk_area'),
+            ]);
+        } else if ($vehicle->type == 'Motobike') {
+            $vehicle->motobike()->update([
+                'trunk_area' => $request->input('trunk_area'),
+                'engine_capacity' => $request->input('engine_capacity'),
+            ]);
+        } else if ($vehicle->type == 'Truck') {
+            $vehicle->truck()->update([
+                'total_wheel' => $request->input('total_wheel'),
+                'cargo_area' => $request->input('cargo_area'),
+            ]);
+        }
+
+        return redirect()->route('vehicles.index')->with('success', 'Vehicle updated successfully.');
     }
 
     /**

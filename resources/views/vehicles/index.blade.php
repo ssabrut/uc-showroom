@@ -36,7 +36,14 @@
                 <td class="py-4">{{ $vehicle->manufacture }}</td>
                 <td class="py-4">Rp. {{ number_format($vehicle->price, 0, '.', ',') }}</td>
                 <td class="py-4">{{ $vehicle->type }}</td>
-                <td class="py-4">Edit</td>
+                <td class="py-4">
+                  <div class="flex items-center gap-4">
+                    <a class="no-underline text-blue-600 font-semibold" href="{{ route('vehicles.edit', $vehicle->id) }}">Edit</a>
+                    <form action="">
+                      <button>Delete</button>
+                    </form>
+                  </div>
+                </td>
               </tr>
           @endforeach
         </tbody>
