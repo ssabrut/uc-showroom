@@ -1,4 +1,7 @@
 <div>
+  @if (session()->has('error'))
+    @include('components.error-notification', ['message' => session('error')])
+  @endif
   @if ($selectedCustomer == null)
     <p>Choose customer from the list.</p>
   @else
@@ -19,7 +22,7 @@
           </thead>
           <tbody>
             @foreach ($customers as $customer)
-              <tr>
+              <tr class="border-b-2">
                 <td class="py-4 text-center">
                   <button class="bg-blue-600 py-1.5 px-3 text-white font-semibold rounded"
                     wire:click="selectCustomer('{{ $customer->id }}')">Select</button>
@@ -34,7 +37,7 @@
           </tbody>
         </table>
       @else
-        <div class="grid grid-cols-4 gap-14">
+        <div class="grid grid-cols-4 gap-12">
           <div class="mt-8 col-span-3">
             <table class="w-full">
               <thead class="border-b-2">
@@ -71,11 +74,17 @@
               </tbody>
             </table>
           </div>
-          <div>
+          <div class="p-5 rounded-lg border-2">
+            <p class="font-semibold text-xl mb-6">Order Summary</p>
             <p>ID Card : {{ $selectedCustomer->id }}</p>
             <p>Name : {{ $selectedCustomer->name }}</p>
             <p>Address : {{ $selectedCustomer->address }}</p>
             <p>Phone : {{ $selectedCustomer->phone }}</p>
+            <hr class="my-8" />
+            <div class="flex justify-between items-center">
+              <p class="font-semibold">Total</p>
+              <p>Rp. {{ number_format($totalPrice, 0, '.', ',') }}</p>
+            </div>
           </div>
         </div>
         <div class="flex items-center justify-end mt-8 gap-8">

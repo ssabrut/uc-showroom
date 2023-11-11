@@ -1,11 +1,5 @@
 <div>
   <div class="mt-12">
-    <div>
-      <p>ID Card : {{ $order->user->id }}</p>
-      <p>Name : {{ $order->user->name }}</p>
-      <p>Address : {{ $order->user->address }}</p>
-      <p>Phone : {{ $order->user->phone }}</p>
-    </div>
     <div class="grid grid-cols-4 gap-14">
       <div class="mt-8 col-span-3">
         <table class="w-full">
@@ -37,11 +31,23 @@
                 <td class="py-4">{{ $vehicle->capacity }}</td>
                 <td class="py-4">{{ $vehicle->manufacture }}</td>
                 <td class="py-4">{{ $vehicle->type }}</td>
-                <td class="py-4">{{ $vehicle->price }}</td>
+                <td class="py-4">Rp. {{ number_format($vehicle->price, 0, '.', ',') }}</td>
               </tr>
             @endforeach
           </tbody>
         </table>
+      </div>
+      <div class="p-5 rounded-lg border-2">
+        <p class="font-semibold text-xl mb-6">Order Summary</p>
+        <p>ID Card : {{ $order->user->id }}</p>
+        <p>Name : {{ $order->user->name }}</p>
+        <p>Address : {{ $order->user->address }}</p>
+        <p>Phone : {{ $order->user->phone }}</p>
+        <hr class="my-8" />
+        <div class="flex justify-between items-center">
+          <p class="font-semibold">Total</p>
+          <p>Rp. {{ number_format($totalPrice, 0, '.', ',') }}</p>
+        </div>
       </div>
     </div>
     <div class="flex items-center justify-end mt-8 gap-8">

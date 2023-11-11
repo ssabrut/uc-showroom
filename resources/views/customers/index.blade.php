@@ -28,7 +28,7 @@
         </thead>
         <tbody>
           @foreach ($customers as $customer)
-            <tr>
+            <tr class="border-b-2">
               <td class="py-4">{{ $customer->id }}</td>
               <td class="py-4">{{ $customer->name }}</td>
               <td class="py-4">{{ $customer->address }}</td>

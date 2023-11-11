@@ -5,9 +5,9 @@
     </div>
     <div>
       <div class="flex flex-col gap-4">
-        <div class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg {{ request()->route('/') ? 'bg-gray-100 text-blue-600' : '' }}">
+        <div class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg {{ request()->routeIs('home') ? 'bg-gray-100 text-blue-600' : '' }}">
           <i data-feather="home"></i>
-          <a class="text-xl font-medium no-underline" href="/">Dashboard</a>
+          <a class="text-xl font-medium no-underline" href="{{ route('home') }}">Dashboard</a>
         </div>
         <div
           class="flex gap-3 items-center py-2.5 px-3.5 rounded-lg {{ request()->routeIs('orders.*') ? 'bg-gray-100 text-blue-600' : '' }}">

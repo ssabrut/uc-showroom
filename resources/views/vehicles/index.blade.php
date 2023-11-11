@@ -31,7 +31,7 @@
         </thead>
         <tbody>
           @foreach ($vehicles as $vehicle)
-            <tr>
+            <tr class="border-b-2">
               <td class="py-4">{{ $vehicle->id }}</td>
               <td class="py-4">{{ $vehicle->model }}</td>
               <td class="py-4">{{ $vehicle->year }}</td>

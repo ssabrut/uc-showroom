@@ -12,6 +12,7 @@ class OrderForm extends Component {
     public $selectedCustomer = null;
     public $selectedVehicle = [];
     public $totalPrice = 0;
+    public $isDataEmpty = true;
 
     public function mount($customers, $vehicles) {
         $this->customers = $customers;
@@ -24,29 +25,42 @@ class OrderForm extends Component {
 
     public function addVehicle($vehicleId) {
         array_push($this->selectedVehicle, $vehicleId);
+        $vehicle = $this->vehicles->where('id', $vehicleId)->first();
+        $this->totalPrice += $vehicle->price;
+        $this->isDataEmpty = false;
     }
 
     public function removeVehicle($vehicleId) {
         $index = array_search($vehicleId, $this->selectedVehicle);
         unset($this->selectedVehicle[$index]);
+        $vehicle = $this->vehicles->where('id', $vehicleId)->first();
+        $this->totalPrice -= $vehicle->price;
+        if (count($this->selectedVehicle) == 0) {
+            $this->isDataEmpty = true;
+        }
     }
 
     public function clear() {
         $this->selectedCustomer = null;
         $this->selectedVehicle = [];
+        $this->totalPrice = 0;
     }
 
     public function makeOrder() {
-        $order = new Order();
-        $order->user_id = $this->selectedCustomer->id;
-        $order->save();
+        if (!$this->isDataEmpty) {
+            $order = new Order();
+            $order->user_id = $this->selectedCustomer->id;
+            $order->save();
 
-        foreach ($this->selectedVehicle as $vehicleId) {
-            $order->vehicles()->attach($vehicleId);
+            foreach ($this->selectedVehicle as $vehicleId) {
+                $order->vehicles()->attach($vehicleId);
+            }
+
+            $this->clear();
+            return redirect()->route('orders.index')->with('success', 'Order created successfully!');
+        } else {
+            return redirect()->route('orders.create')->with('error', 'Please select at least one vehicle!');
         }
-
-        $this->clear();
-        return redirect()->route('orders.index')->with('success', 'Order created successfully!');
     }
 
     public function render() {
