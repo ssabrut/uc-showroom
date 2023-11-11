@@ -55,15 +55,30 @@ class CustomerController extends Controller {
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user) {
-        //
+    public function edit($id) {
+        $customer = User::find($id);
+
+        return view('customers.update', [
+            'customer' => $customer
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user) {
-        //
+    public function update(Request $request, $id) {
+        $customer = User::find($id);
+
+        $customer->update([
+            'id' => $request->id,
+            'name' => $request->name,
+            'address' => $request->address,
+            'phone' => $request->phone
+        ]);
+
+        return redirect()
+            ->route('customers.index')
+            ->with('success', 'Customer updated successfully.');
     }
 
     /**

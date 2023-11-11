@@ -30,7 +30,10 @@
               <td class="py-4">{{ $customer->name }}</td>
               <td class="py-4">{{ $customer->address }}</td>
               <td class="py-4">{{ $customer->phone }}</td>
-              <td class="py-4">Edit</td>
+              <td class="py-4">
+                <a class="no-underline text-blue-600 font-semibold"
+                  href="{{ route('customers.edit', $customer->id) }}">Edit</a>
+              </td>
             </tr>
           @endforeach
         </tbody>
