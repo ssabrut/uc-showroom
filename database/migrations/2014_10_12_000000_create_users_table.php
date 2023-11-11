@@ -13,7 +13,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('address');
-            $table->char('phone', 12);
+            $table->char('phone', 15);
             $table->timestamps();
         });
     }

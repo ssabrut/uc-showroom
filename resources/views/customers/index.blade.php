@@ -4,11 +4,12 @@
   <div>
     <div class="flex justify-between items-center mb-14">
       <div>
-        <h1 class="font-medium text-xl mb-2">Customer List</h1>
+        @include('components.content-page-title', ['title' => 'Customers Data'])
         <p>A list of all the users in your showroom including their id card, name, address, and phone number.</p>
       </div>
       <div>
-        <button class="bg-blue-600 text-white font-semibold py-1.5 px-3 rounded">Add user</button>
+        <a class="bg-blue-600 text-white font-semibold py-2 px-3 rounded no-underline"
+          href="{{ route('customers.create') }}">Add user</a>
       </div>
     </div>
     <div>

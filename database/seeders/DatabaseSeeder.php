@@ -16,21 +16,21 @@ class DatabaseSeeder extends Seeder {
             'id' => 3578101010100001,
             'name' => 'Test User',
             'address' => '123 Test Street',
-            'phone' => '1234567890',
+            'phone' => '0812-3456-7890',
         ]);
 
         User::create([
             'id' => 3578101010100002,
             'name' => 'Haha User',
             'address' => '123 Haha Street',
-            'phone' => '1234567890',
+            'phone' => '0812-3456-7890',
         ]);
 
         User::create([
             'id' => 3578101010100003,
             'name' => 'Hihi User',
             'address' => '123 Hihi Street',
-            'phone' => '1234567890',
+            'phone' => '0812-3456-7890',
         ]);
     }
 }
