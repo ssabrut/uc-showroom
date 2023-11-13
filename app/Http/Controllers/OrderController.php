@@ -67,6 +67,10 @@ class OrderController extends Controller {
     public function destroy($id) {
         $order = Order::find($id);
         $order->vehicles()->detach();
+        if ($order->transfer) {
+            unlink(public_path('storage/' . $order->transfer));
+        }
+
         $order->delete();
 
         return redirect()
